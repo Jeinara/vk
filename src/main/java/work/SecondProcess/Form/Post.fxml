@@ -17,7 +17,7 @@
       <Button fx:id="load" layoutX="220.0" layoutY="538.0" mnemonicParsing="false"
               prefHeight="39.0" prefWidth="137.0" text="Load" onAction="#onLoadButtonClick" />
       <Button fx:id="clean" layoutX="33.0" layoutY="538.0" mnemonicParsing="false"
-              prefHeight="39.0" prefWidth="130.0" text="Clean" />
+              prefHeight="39.0" prefWidth="130.0" text="Clean" onAction="#onCleanButtonClick" />
       <ListView fx:id="postList" layoutX="386.0" layoutY="14.0" prefHeight="591.0" prefWidth="200.0"
       onMouseClicked="#onFieldChoose"/>
    </children>

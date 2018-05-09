@@ -23,9 +23,13 @@ public class FormController {
     private ImageView image;
 
     public void onLoadButtonClick(){
+        postList.getItems().clear();
         Main.fileContent.forEach((id,rec) -> postList.getItems().add(rec.getId()));
     }
 
+    public void onCleanButtonClick(){
+
+    };
     public void onFieldChoose(){
         Record rec = Main.fileContent.get(postList.getSelectionModel().getSelectedItem());
         text.setText(rec.getText());

@@ -20,7 +20,15 @@ public class Main {
     public static ArrayList<String> idInDB = new ArrayList<>();
 
     public static void main(String[] args) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                FormApplication.main(args);
+            }
+        }).start();
+
         Reading reading = new Reading("гадим_сюда.json");
+
         try {
             DataBase db = new DataBase();
             try {
@@ -54,6 +62,5 @@ public class Main {
             try { DataBase.stmt.close(); } catch(SQLException se) { /*can't do anything */ }
             try { DataBase.rs.close(); } catch(SQLException se) { /*can't do anything */ }
         }
-        FormApplication.main(args);
     }
 }
