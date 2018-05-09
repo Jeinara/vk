@@ -8,7 +8,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="work.SecondProcess.Form.FormController">
    <children>
-      <TextArea fx:id="text" editable="false" layoutX="10.0" layoutY="14.0" prefHeight="215.0" prefWidth="362.0" />
+      <TextArea fx:id="text" wrapText="true" editable="false" layoutX="10.0" layoutY="14.0" prefHeight="215.0" prefWidth="362.0" />
       <ImageView fx:id="image" fitHeight="174.0" fitWidth="362.0" layoutX="13.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
       <ComboBox fx:id="urls" layoutX="213.0" layoutY="460.0" prefWidth="150.0" />
       <ComboBox fx:id="pictures" layoutX="23.0" layoutY="460.0" prefWidth="150.0" onAction="#onImgChoose"/>

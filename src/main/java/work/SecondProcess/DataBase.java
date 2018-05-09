@@ -49,6 +49,7 @@ public class DataBase {
             stmt.executeUpdate(queryForImg+img+" ');");
         }
     }
+
     private void createTables() throws SQLException {
         String postTable = "CREATE TABLE IF NOT EXISTS vk.post\n" +
                 "(\n" +

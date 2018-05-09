@@ -6,12 +6,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import work.SecondProcess.DataBase;
 import work.SecondProcess.Main;
 import work.record.Record;
 
 import java.io.File;
 import java.net.MalformedURLException;
-import java.util.Collection;
 
 public class FormController {
     @FXML
@@ -32,6 +32,7 @@ public class FormController {
     private Label labPictures;
     @FXML
     private Label labUrls;
+    private String address = "C:\\Users\\Svetlana\\Documents\\GitHub\\vk\\";
 
     public void onLoadButtonClick(){
         postList.getItems().clear();
@@ -39,10 +40,28 @@ public class FormController {
     }
 
     public void onCleanButtonClick(){
-
-    };
+        try{
+        File file = new File(address+"гадство_здесь");
+        File[] listOfImages = file.listFiles();
+        for ( int i = 0; i< listOfImages.length; i++){
+            listOfImages[i].delete();
+        }
+        file = new File(address+"гадим_сюда.json");
+        boolean b = file.delete();
+        if(b){
+        postList.getItems().clear();
+        Main.fileContent.clear();
+        Main.idInDB.clear();
+        urls.getItems().clear();
+        pictures.getItems().clear();
+        labUrls.setText(labUrls.getText().substring(0,labUrls.getText().length()-1));
+        labPictures.setText(labPictures.getText().substring(0,labPictures.getText().length()-1));
+        image.setImage(null);
+        text.setText("");}
+        } catch (NullPointerException e){ System.out.println("Уже очищено");}
+    }
     public void onImgChoose(){
-        String address = "C:\\Users\\Svetlana\\Documents\\GitHub\\vk\\";
+
         File file = new File(address +pictures.getSelectionModel().getSelectedItem());
         try {
             String localUrl = file.toURI().toURL().toString();
