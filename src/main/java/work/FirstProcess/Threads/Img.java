@@ -59,6 +59,6 @@ public class Img extends ParentThread implements Runnable  {
             e.printStackTrace();
             return "null";
         }
-        return "гадство_здесь/"+ar[ar.length-1];
+        return "гадство_здесь\\"+ar[ar.length-1];
     }
 }

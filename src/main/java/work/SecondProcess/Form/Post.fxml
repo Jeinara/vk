@@ -8,17 +8,14 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="work.SecondProcess.Form.FormController">
    <children>
-      <TextArea fx:id="text" layoutX="10.0" layoutY="14.0" prefHeight="215.0" prefWidth="362.0"
-      editable="false"/>
-      <ImageView fx:id="image" fitHeight="174.0" fitWidth="362.0" layoutX="13.0" layoutY="243.0"
-                 pickOnBounds="true" preserveRatio="true" />
-      <ChoiceBox fx:id="urls" layoutX="213.0" layoutY="460.0" prefWidth="150.0" />
-      <ChoiceBox fx:id="pictures" layoutX="23.0" layoutY="460.0" prefWidth="150.0" />
-      <Button fx:id="load" layoutX="220.0" layoutY="538.0" mnemonicParsing="false"
-              prefHeight="39.0" prefWidth="137.0" text="Load" onAction="#onLoadButtonClick" />
-      <Button fx:id="clean" layoutX="33.0" layoutY="538.0" mnemonicParsing="false"
-              prefHeight="39.0" prefWidth="130.0" text="Clean" onAction="#onCleanButtonClick" />
-      <ListView fx:id="postList" layoutX="386.0" layoutY="14.0" prefHeight="591.0" prefWidth="200.0"
-      onMouseClicked="#onFieldChoose"/>
+      <TextArea fx:id="text" editable="false" layoutX="10.0" layoutY="14.0" prefHeight="215.0" prefWidth="362.0" />
+      <ImageView fx:id="image" fitHeight="174.0" fitWidth="362.0" layoutX="13.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
+      <ComboBox fx:id="urls" layoutX="213.0" layoutY="460.0" prefWidth="150.0" />
+      <ComboBox fx:id="pictures" layoutX="23.0" layoutY="460.0" prefWidth="150.0" onAction="#onImgChoose"/>
+      <Button fx:id="load" layoutX="220.0" layoutY="538.0" mnemonicParsing="false" onAction="#onLoadButtonClick" prefHeight="39.0" prefWidth="137.0" text="Load" />
+      <Button fx:id="clean" layoutX="33.0" layoutY="538.0" mnemonicParsing="false" onAction="#onCleanButtonClick" prefHeight="39.0" prefWidth="130.0" text="Clean" />
+      <ListView fx:id="postList" layoutX="386.0" layoutY="14.0" onMouseClicked="#onFieldChoose" prefHeight="591.0" prefWidth="200.0" />
+      <Label fx:id="labPictures" layoutX="23.0" layoutY="433.0" prefHeight="27.0" prefWidth="150.0" text="Images in post:" />
+      <Label fx:id="labUrls" layoutX="213.0" layoutY="433.0" prefHeight="27.0" prefWidth="150.0" text="Urls in post:" />
    </children>
 </Pane>
