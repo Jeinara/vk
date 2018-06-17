@@ -46,9 +46,11 @@ public class Writing {
             else{
                 //прочитать все айдишники
                 String id = "";
+                id = file.readLine();
                 while (!id.startsWith(" ]")) {
                     id = file.readLine();
-                    if(id.contains("\"id\":")){
+                    if(id.startsWith("{")){
+                        id = file.readLine();
                         existedId.add(id.substring(9,id.length()-2));
                     }
                 }
@@ -99,10 +101,9 @@ public class Writing {
     }
 
     private void write(Record rec){
-        try {
-            RandomAccessFile file = new RandomAccessFile(path,"rw");
+        try(RandomAccessFile file = new RandomAccessFile(path,"rw");
             FileChannel fileChannel = file.getChannel();
-            FileLock lock = fileChannel.lock();
+            FileLock lock = fileChannel.lock()) {
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String json;
             if(!isFileExist){
@@ -116,8 +117,6 @@ public class Writing {
             file.write(inputBytes);
             pos = file.getFilePointer();
             lock.release();
-            fileChannel.close();
-            file.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

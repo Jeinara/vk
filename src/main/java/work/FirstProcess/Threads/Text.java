@@ -28,7 +28,10 @@ public class Text extends ParentThread implements Runnable  {
                 List<WebElement> more = e.findElements(By.xpath(".//div[@class=\"wall_post_text\"]/a[@class=\"wall_post_more\"]"));
                 if(!more.isEmpty()) {
                     writing.scroll(more.get(0),driver);
-                    more.get(0).click();}
+                    JavascriptExecutor executor = (JavascriptExecutor)driver;
+                    executor.executeScript("arguments[0].click();", more.get(0));
+                    //more.get(0).click();
+                }
                 more.clear();
                 writing.addText(e.getAttribute("id"),e.findElement(By.xpath(".//div[@class=\"wall_post_text\"]")).getText());
             } catch (NoSuchElementException ex)

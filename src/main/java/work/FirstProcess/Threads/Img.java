@@ -28,7 +28,7 @@ public class Img extends ParentThread implements Runnable  {
         for(WebElement e: webElementList)
         {
             List<String> p = new ArrayList<>();
-            List<WebElement> pic = e.findElements(By.xpath(".//div[@class=\"page_post_sized_thumbs  clear_fix\"]/a"));
+            List<WebElement> pic = e.findElements(By.xpath(".//div[@class=\"wall_post_cont _wall_post_cont\"]/div[@class=\"page_post_sized_thumbs  clear_fix\"]/a"));
             if(pic.size() != 0)
             {
                 //при промотке запускается видео, картинка пропадает!!!

@@ -3,6 +3,7 @@ package work.SecondProcess;
 import work.SecondProcess.Form.FormApplication;
 import work.record.Record;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileChannel;
@@ -20,6 +21,11 @@ public class Main {
     public static ArrayList<String> idInDB = new ArrayList<>();
 
     public static void main(String[] args) {
+        File f = new File("гадим_сюда.json");
+        if(!f.exists()){
+            System.out.println("Куда ты лезешь, оно тебя сожрет!");
+            return;}
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -29,38 +35,31 @@ public class Main {
 
         Reading reading = new Reading("гадим_сюда.json");
 
-        try {
-            DataBase db = new DataBase();
-            try {
-                while (!reading.isOver) {
-                    RandomAccessFile file = new RandomAccessFile(reading.getPath(),"rw");
-                    FileChannel fileChannel = file.getChannel();
-                    FileLock lock = fileChannel.lock();
-                    Record record = reading.read(file);
-                    lock.release();
-                    fileChannel.close();
-                    file.close();
-                    if(record != null){
-                        if(!idInDB.contains(record.getId())){
-                            db.createRecord(record);}
-                        fileContent.put(record.getId(),record);
-                    } else if(!reading.isOver) {
-                        try {
-                            sleep(5000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
+        try(DataBase db = new DataBase()) {
+            while (!reading.isOver) {
+
+                RandomAccessFile file = new RandomAccessFile(reading.getPath(), "rw");
+                FileChannel fileChannel = file.getChannel();
+                FileLock lock = fileChannel.lock();
+                Record record = reading.read(file);
+                lock.release();
+                fileChannel.close();
+                file.close();
+                if (record != null) {
+                    if (!idInDB.contains(record.getId())) {
+                        db.createRecord(record);
+                    }
+                    fileContent.put(record.getId(), record);
+                } else if (!reading.isOver) {
+                    try {
+                        sleep(5000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
                     }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-        } catch (SQLException sqlEx) {
-            sqlEx.printStackTrace();
-        } finally {
-            try { DataBase.con.close(); } catch(SQLException se) { /*can't do anything */ }
-            try { DataBase.stmt.close(); } catch(SQLException se) { /*can't do anything */ }
-            try { DataBase.rs.close(); } catch(SQLException se) { /*can't do anything */ }
+        } catch (IOException | SQLException e) {
+            e.printStackTrace();
         }
     }
 }

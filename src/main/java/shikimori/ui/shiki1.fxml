@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.6822125813449024" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="924.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <items>
+      <Accordion>
+        <panes>
+          <TitledPane animated="false" text="untitled 1">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Pane prefHeight="306.0" prefWidth="205.0">
+                           <children>
+                              <ImageView fitHeight="235.5" fitWidth="168.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label layoutX="19.0" layoutY="264.0" text="Label" />
+                              <Label layoutX="103.0" layoutY="264.0" text="Label" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="205.0" prefHeight="306.0" prefWidth="205.0">
+                           <children>
+                              <ImageView fitHeight="235.5" fitWidth="168.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label layoutX="19.0" layoutY="264.0" text="Label" />
+                              <Label layoutX="103.0" layoutY="264.0" text="Label" />
+                           </children>
+                        </Pane>
+                        <Pane layoutX="410.0" prefHeight="306.0" prefWidth="205.0">
+                           <children>
+                              <ImageView fitHeight="235.5" fitWidth="168.0" layoutX="19.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label layoutX="19.0" layoutY="264.0" text="Label" />
+                              <Label layoutX="103.0" layoutY="264.0" text="Label" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </content>
+          </TitledPane>
+          <TitledPane animated="false" text="untitled 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="untitled 3">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <Pane prefHeight="608.0" prefWidth="299.0">
+         <children>
+            <ImageView fitHeight="235.5" fitWidth="168.0" layoutX="60.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="144.0" layoutY="332.0" text="Label" />
+            <TextArea layoutX="7.0" layoutY="389.0" prefHeight="204.0" prefWidth="275.0" />
+            <Label layoutX="14.0" layoutY="359.0" text="Описание:" />
+            <Label layoutX="14.0" layoutY="311.0" text="Эпизод:" />
+            <Label layoutX="145.0" layoutY="311.0" text="Время выхода:" />
+            <Label layoutX="14.0" layoutY="332.0" text="La" />
+            <Label layoutX="25.0" layoutY="273.0" maxWidth="-Infinity" prefHeight="27.0" prefWidth="230.0" text="Название" />
+         </children>
+      </Pane>
+  </items>
+</SplitPane>
